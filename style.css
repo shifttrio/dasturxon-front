@@ -1,0 +1,712 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #000;
+    padding-bottom: 70px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   PHONE MODAL 
+   ============================================ */
+.phone-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-modal.active {
+    display: flex;
+}
+
+.phone-modal-content {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-icon {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.phone-modal-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a2e;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.phone-input-group {
+    display: flex;
+    align-items: center;
+    background: #f5f5f7;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+}
+
+.country-code {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-right: 10px;
+}
+
+#phoneInput {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    color: #1a1a2e;
+}
+
+#phoneInput::placeholder {
+    color: #8e8e93;
+}
+
+.continue-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+.continue-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.existing-phone {
+    margin-top: 20px;
+}
+
+.existing-phone p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.existing-phone strong {
+    color: #7c3aed;
+    font-size: 16px;
+}
+
+.confirm-btn, .change-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.confirm-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+}
+
+.confirm-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.confirm-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.change-btn, .back-btn {
+    background: #f5f5f7;
+    color: #1a1a2e;
+}
+
+.change-btn:hover, .back-btn:hover {
+    background: #e5e5e7;
+}
+
+/* Form displays */
+#newPhoneForm,
+#existingPhoneForm,
+#changePhoneForm {
+    width: 100%;
+}
+
+/* Saved phone display */
+.saved-phone-display {
+    background: #f0f4ff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid #7c3aed;
+}
+
+.saved-phone-display p {
+    font-size: 15px;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.saved-phone-display strong {
+    color: #7c3aed;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Old phone info */
+.old-phone-info {
+    background: #fff5f5;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid #f87171;
+}
+
+.old-phone-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.old-phone-info span {
+    color: #dc2626;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Change phone input */
+#changePhoneInput {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    color: #1a1a2e;
+}
+
+#changePhoneInput::placeholder {
+    color: #8e8e93;
+}
+
+
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    background-color: #dcdcdd;
+
+    height: 60px;               /* 🔥 header balandligi aniq 20px */
+    display: flex;
+    align-items: center;        /* ichidagi logo va boshqa narsalarni vertikal markazga qo'yadi */
+    justify-content: space-between;
+
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+
+    margin-bottom: 10px;
+    padding: 0 20px;            /* chap va o'ngdan 20px joy */
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.logout-btn:active {
+    background-color: #e0e0e0;
+}
+
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    background: transparent;
+    display: block;
+
+    margin-top: 35px;
+    margin-left: -30px;
+}
+
+.logo-text {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;   /* text logo kesilmasin */
+    background: transparent;
+    display: block;
+
+    margin-top: -110px;
+    margin-left: 5px;
+}
+
+
+
+
+/* ============================================
+   LOCATION BAR
+   ============================================ */
+
+
+/* ============================================
+   SEARCH BAR
+   ============================================ */
+.search-bar {
+    background-color: #f5f5f7;
+    padding: 12px 20px;
+    margin: 0 15px 8px 15px;  /* header bilan aralashmaydi */
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #8e8e93;
+    font-size: 15px;
+    width: 100%;
+}
+
+/* ============================================
+   PROMO BANNER
+   ============================================ */
+.promo-banner {
+    width: 100%;
+    background: #ffffff;        /* kulrang fon */
+    padding: 5px;               /* rasm atrofida joy */
+    border-radius: 16px;
+    margin-bottom: 5px;         /* pastdagi element bilan 5px joy */
+}
+
+.banner-image {
+    width: 95%;
+    height: auto;
+    display: block;
+    border-radius: 12px;        /* rasm burchaklari */
+    border: 1px solid #ddd;
+    margin-left: 10px;     /* rasmga border */
+}
+
+
+
+/* ============================================
+   CATEGORIES
+   ============================================ */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 10px 15px 12px 15px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.category-item span {
+    font-size: 13px;
+    color: #000;
+    font-weight: 500;
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+.section-header {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin: 8px 15px 10px 15px;
+}
+
+/* ============================================
+   RESTAURANT CARDS (YANGILANGAN DIZAYN)
+   ============================================ */
+.restaurant-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 15px 20px 15px;
+}
+
+.restaurant-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.restaurant-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e91e63;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.restaurant-badge.green {
+    background-color: #10b981;
+}
+
+.restaurant-badge.red {
+    background-color: #ef4444;
+}
+
+.restaurant-badge.blue {
+    background-color: #3b82f6;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.card-rating {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.restaurant-info {
+    padding: 12px;
+}
+
+.restaurant-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1a1a2e;
+}
+
+.restaurant-tags {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.restaurant-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.delivery-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #666;
+}
+
+.delivery-info img {
+    width: 16px;
+    height: 16px;
+}
+
+.restaurant-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #ffeb3b;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.promo-text {
+    background-color: #e8f5e9;
+    color: #10b981;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* ============================================
+   BOTTOM NAVIGATION
+   ============================================ */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-top: 1px solid #e5e5e7;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #8e8e93;
+    font-size: 13px;
+    position: relative;
+}
+
+.nav-item.active {
+    color: #7c3aed;
+}
+
+.nav-item img {
+    width: 28px;
+    height: 28px;
+}
+
+.nav-item .badge {
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    background-color: #e91e63;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+#loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #666;
+}
+
+/* ============================================
+   RESPONSIVE - HAR QANDAY EKRANDA MOBIL KO'RINISH
+   ============================================ */
+
+/* Barcha ekranlar uchun */
+html {
+    background: #e5e5e7;
+}
+
+body {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    min-height: 100vh;
+}
+
+/* Bottom nav markazda */
+.bottom-nav {
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Phone modal markazda */
+.phone-modal {
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.phone-modal.active {
+    transform: translateX(-50%);
+}
+
+/* Kichik ekranlar (mobil) */
+@media (max-width: 480px) {
+    html {
+        background: #ffffff;
+    }
+    
+    body {
+        box-shadow: none;
+        max-width: 100%;
+    }
+    
+    .bottom-nav {
+        left: 0;
+        right: 0;
+        transform: none;
+        max-width: 100%;
+    }
+    
+    .phone-modal {
+        left: 0;
+        right: 0;
+        transform: none;
+        max-width: 100%;
+    }
+    
+    .phone-modal.active {
+        transform: none;
+    }
+    
+    .restaurant-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Juda kichik ekranlar */
+@media (max-width: 360px) {
+    .phone-modal-content {
+        padding: 30px 20px;
+    }
+    
+    .section-header {
+        font-size: 24px;
+    }
+    
+    .restaurant-card {
+        font-size: 14px;
+    }
+}

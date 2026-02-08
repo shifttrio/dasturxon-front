@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyurtmalar</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="buyurtmalar.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <button class="back-btn" onclick="window.location.href='../index.html'">←</button>
+        <h1 class="page-title">Buyurtmalarim</h1>
+        <div style="width: 44px;"></div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loadingOrders">
+        <div class="spinner"></div>
+        <p>Buyurtmalar yuklanmoqda...</p>
+    </div>
+
+    <!-- Orders Container -->
+    <div class="orders-container" id="ordersContainer">
+        <!-- Buyurtmalar shu yerda render bo'ladi -->
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="../index.html" class="nav-item">
+            <img src="../img/restarants.png" alt="Restoranlar">
+            <span>Restoranlar</span>
+        </a>
+        <a href="../cart/cart.html" class="nav-item">
+            <img src="../img/cart.png" alt="Savat">
+            <span>Savat</span>
+        </a>
+        <a href="./buyurtmalar.html" class="nav-item active">
+            <img src="../img/buyurtma.png" alt="Buyurtmalar">
+            <span>Buyurtmalar</span>
+        </a>
+        <a href="../profile/profile.html" class="nav-item">
+            <img src="../img/profile.png" alt="Profil">
+            <span>Profil</span>
+        </a>
+    </nav>
+
+    <script src="buyurtmalar.js"></script>
+</body>
+</html>

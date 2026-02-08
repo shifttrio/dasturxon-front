@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savat - Dasturxon</title>
+    <base href="./">
+    <link rel="stylesheet" href="./cart.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header style="background:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+        <button onclick="window.location.href='/index.html'" style="background:transparent;border:none;font-size:24px;cursor:pointer;">
+            ←
+        </button>
+        <h2 style="font-size:20px;font-weight:700;color:#1a1a2e;">Savat</h2>
+        <div style="width:24px;"></div>
+    </header>
+
+    <!-- Loading -->
+    <div id="loadingCart" style="display:none;">
+        Yuklanmoqda...
+    </div>
+
+    <!-- Cart Container -->
+    <div id="cartContainer">
+        <!-- Cart items will be loaded here -->
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" style="position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:480px;width:100%;background:#fff;display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #e5e5e7;box-shadow:0 -2px 10px rgba(0,0,0,0.1);">
+        <a href="../index.html" class="nav-item" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:#8e8e93;font-size:13px;">
+            <img src="../img/restarants.png" alt="Restoranlar" style="width:28px;height:28px;">
+            <span>Restoranlar</span>
+        </a>
+        <a href="./cart.html" class="nav-item active" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:#7c3aed;font-size:13px;">
+            <img src="../img/cart.png" alt="Savat" style="width:28px;height:28px;">
+            <span>Savat</span>
+        </a>
+        <a href="../orders/buyurtmalar.html" class="nav-item" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:#8e8e93;font-size:13px;">
+            <img src="../img/buyurtma.png" alt="Buyurtmalar" style="width:28px;height:28px;">
+            <span>Buyurtmalar</span>
+        </a>
+     
+        <a href="../profile/profile.html" class="nav-item" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:#8e8e93;font-size:13px;">
+            <img src="../img/profile.png" alt="Profil" style="width:28px;height:28px;">
+            <span>Profil</span>
+        </a>
+    </nav>
+
+    <script src="./cart.js"></script>
+    <script>
+// =====================================
+// DEVTOOLS VA HOTKEY BLOCK SCRIPT
+// =====================================
+
+// Right click block
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+
+// Key block function
+document.addEventListener('keydown', function (e) {
+
+    // F12 block
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+I block
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+J block
+    if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+C block
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+U block
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+S block
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+P block
+    if (e.ctrlKey && e.key === 'p') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+A block (optional)
+    if (e.ctrlKey && e.key === 'a') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+C block (optional)
+    if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault();
+        return false;
+    }
+
+});
+
+
+
+</script>
+
+</body>
+</html>

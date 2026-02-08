@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <base href="./">
+    <link rel="stylesheet" href="./restaurant.css">
+
+    <!-- Telegram WebApp -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="restaurant-header">
+
+    <button class="back-to-menu-btn" id="backToMenuBtn">
+           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6"
+              stroke="black"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+    </button>
+
+    <h1 id="restaurant-name">Restoran</h1>
+
+    <div class="restaurant-icons">
+
+        <div class="icon-item">
+            <img src="./icons/clock.png" class="top-icon">
+            <span id="delivery-time">25 min</span>
+        </div>
+
+        <div class="icon-item" id="info-btn">
+            <img src="./icons/info.png" class="top-icon">
+            <span>Info</span>
+        </div>
+
+        <div class="icon-item">
+            <img src="./icons/star.png" class="top-icon">
+            <span>4.9</span>
+        </div>
+
+        <div class="icon-item">
+            <img src="./icons/delivery.png" class="top-icon">
+            <span>Delivery</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- CATEGORY BAR -->
+<div id="categoryBar" class="category-bar"></div>
+
+
+<!-- PRODUCTS -->
+<div class="products-container" id="productsContainer"></div>
+
+
+<!-- INFO MODAL -->
+<div class="modal" id="infoModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button class="back-btn" id="backBtn">&lt;</button>
+            <h2>Restoran ma'lumoti</h2>
+            <div></div>
+        </div>
+
+        <div class="modal-body" id="modalBody"></div>
+
+    </div>
+
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal" id="productModal">
+
+    <div class="modal-content product-detail-content">
+
+        <div class="product-detail-header">
+            <h2></h2>
+            <button class="close-btn" id="productCloseBtn">✕</button>
+        </div>
+
+        <div class="product-detail-body">
+            <div class="product-badge-container">
+            </div>
+            <img id="productDetailImage" src="" alt="">
+            <div class="product-info">
+                <h3 id="productDetailName"></h3>
+                <p id="productDetailDesc" class="product-detail-desc"></p>
+                <div class="product-meta">
+                    <span id="productDetailPrice" class="price"></span>
+                    <span id="productDetailWeight" class="weight"></span>
+                </div>
+               <div class="bottom-actions">
+    <div class="quantity-control">
+        <button class="qty-btn" id="decreaseBtn">−</button>
+        <input type="number" id="quantityInput" value="1" min="1">
+        <button class="qty-btn" id="increaseBtn">+</button>
+    </div>
+
+    <button class="add-to-cart-btn" id="addToCartBtn">
+        Qoshish
+    </button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="cartBanner" class="cart-banner" style="display: none;">
+    <button id="goToCartBtn" class="go-to-cart-btn">Korzinkaga o'tish 🛒</button>
+</div>
+
+<script src="./restaurant.js"></script>
+<script>
+// =====================================
+// DEVTOOLS VA HOTKEY BLOCK SCRIPT
+// =====================================
+
+// Right click block
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+
+// Key block function
+document.addEventListener('keydown', function (e) {
+
+    // F12 block
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+I block
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+J block
+    if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+C block
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+U block
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+S block
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+P block
+    if (e.ctrlKey && e.key === 'p') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+A block (optional)
+    if (e.ctrlKey && e.key === 'a') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+C block (optional)
+    if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault();
+        return false;
+    }
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>
